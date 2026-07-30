@@ -83,6 +83,7 @@ is admin123 as password
 SELECT * FROM student_system.students; - do the same for Admins table
 
 - Next, head to your config.php file in the config dir and set
+- remember to use .gitignore for the config file
 - see config.php
 - after setting, go to the classes/database.php file
 - to create the database class
@@ -128,3 +129,6 @@ SELECT * FROM student_system.students; - do the same for Admins table
 - see dashboard.php
 
 - next, go to the admin/logout.php
+dedded
+dededed
+ede
