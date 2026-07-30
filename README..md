@@ -1,5 +1,9 @@
 We need to connect to our MySQL workbench application first
 
+- MAKE SURE YOU USE THE THREADED VERSION OF PHP NOT NON-THREADED
+- We made use of Apache webserver in this project after series of configurations
+- with the help of AI
+
 - Open the MySQL workbench, click on the + icon
 - Add "student_system" to the connection name
 - in the password section, click "Store in vault"
@@ -90,3 +94,37 @@ SELECT * FROM student_system.students; - do the same for Admins table
 
 - create a test_connection.php file in the root dir to test
 
+- see the test_connect.php file
+
+- we see it works, after various configurations
+- lets push what we did to github and then continue.
+
+- next, we want to create the login/auth system for the admin
+- so, in the admin dir, create login, logout and dashboard.php files
+- in the classes dir, create the admin.php and auth.php too
+
+- How the whole auth thing works
+- when the admin, types in the username, and the password
+- php checks the username if it matches the one in the db
+- php then check the password of that username in the db
+- if it matches , php creates a session, like a digital id card
+- and logs the person in, if not, throws and error, 'incorrect username or password'
+
+- we start with the admin.php defining our admin model
+- see admin.php
+
+- next we go to auth.php and create the Auth model, see auth.php
+- auth.php acts as the security that checks your id before you can enter a place
+
+- various methods like start startSession(), login() etc
+
+- next, move to the admin/login.php
+
+- see the admin/login.php file, the code is quite clean and self_explanatory
+- we also added the html and css, we'll move the css into a separate dir soon
+- for now, we test!
+
+- next, move to the admin/dashboard.php
+- see dashboard.php
+
+- next, go to the admin/logout.php
