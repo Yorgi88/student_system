@@ -132,3 +132,14 @@ SELECT * FROM student_system.students; - do the same for Admins table
 dedded
 dededed
 ede
+
+- the dashboard.php is done, the admin sees the search student featuer
+- and also the create new student feature, as long as the admin is autheticated
+
+- next, we actually build the search feature
+- first , in the classes/ dir, we added a student.php
+- see student.php
+- we added the methods for getting a student by their their matric_no
+- second method is for creating a new student
+
+- next, create a search.php file in the admin dir
