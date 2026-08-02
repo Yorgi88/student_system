@@ -8,7 +8,7 @@ class Student{
     }
 
     // find student by matric number
-    public function findByMatric(string $matric_no): array{
+    public function findByMatric(string $matric_no){
         $stmt = $this->db->prepare("SELECT * FROM students WHERE matric_no = ?");
         $stmt->execute([$matric_no]);
         $result = $stmt->fetch();

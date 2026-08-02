@@ -143,3 +143,19 @@ ede
 - second method is for creating a new student
 
 - next, create a search.php file in the admin dir
+- see search.php, we've finished the search feature
+- now to the create entry feature
+- 
+- look at admin/create.php
+- 
+- in the create.php we're currently in the file uploads section
+- look at the file upload code, it follows this principles
+
+- Checks if a file was actually uploaded
+- Creates the upload folder if it doesn't exist
+- Validates the file type (only images!)
+- Renames the file safely
+- Moves it to the right place
+- Stores the path for later use
+
+-

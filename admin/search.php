@@ -117,8 +117,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['matric_no'])){
             font-weight: bold;
             color: #555;
         }
-        .gpa-warning {
+        .gpa-warning{
             color: #e74c3c;
+            font-weight: bold;
+        }
+        .gpa-warning-first{
+            color: #90ee90;
             font-weight: bold;
         }
         @media (max-width: 600px) {
@@ -176,6 +180,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['matric_no'])){
                         <?php echo htmlspecialchars($student['gpa']); ?>
                         <?php if ($student['gpa'] < 2.0): ?>
                             <span class="gpa-warning">⚠️ Advise to Withdraw</span>
+                        <?php elseif ($student['gpa'] >= 4.5): ?> 
+                            <span class="gpa-warning-first">✅ First Class</span>   
                         <?php endif; ?>
                     </span>
                 </div>

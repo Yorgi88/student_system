@@ -2,3 +2,13 @@
 config/config.php
 
 config/*.php
+
+images/student_photos/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db

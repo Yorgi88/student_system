@@ -40,6 +40,27 @@ foreach($rows as $row){
     <title>Document</title>
 </head>
 <body>
+    <form action="search.php" action="post" 
+     placeholder="enter matric no"
+     value="<?php echo htmlspecialchars($_POST['matric_no'] ?? ''); ?>" required>
+    <button type="submit">search</button>
+    </form>
 
+    <?php if(!empty($error)): ?>
+        <div class="error"><?php echo $error;?></div>
+    <?php endif; ?>
+
+    <?php if(!empty($student['profile_image'])): ?>
+        <img src="../<?php echo htmlspecialchars($student['profile_image']); ?>" alt="Profile Image">
+    <?php endif;?>
+
+    <div class="gpa">
+        <?php if($student['gpa'] < 2.0): ?>
+            <span class="score">Advised to Withdraw</span>
+        <?php elseif($student['gpa'] >= 4.5): ?>
+            <span>First Class</span>    
+        <?php endif; ?>
+    </div>
+    
 </body>
 </html>
