@@ -82,22 +82,40 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create_student'])){
             mkdir($upload_dir, 0777, true);
         }
         
-        $file_ext = strtolower(pathinfo($_FILES['profile_image']['name'], PATHINFO_EXTENSION));
-        $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-        
-        if (in_array($file_ext, $allowed)) {
-            $new_filename = 'student_' . str_replace('/', '_', $matric_no) . '.' . $file_ext;
-            $destination = $upload_dir . $new_filename;
-            
-            if (move_uploaded_file($_FILES['profile_image']['tmp_name'], $destination)) {
-                $profile_image = 'images/student_photos/' . $new_filename;
-            } else {
-                $errors[] = "Failed to upload image.";
-            }
-        } else {
-            $errors[] = "Invalid image format. Allowed: JPG, PNG, GIF, WEBP.";
-        }
+    // Step 1: Get the MIME type for validation
+$finfo = finfo_open(FILEINFO_MIME_TYPE);
+$mimeType = finfo_file($finfo, $_FILES['profile_image']['tmp_name']);
+finfo_close($finfo);
+
+// Step 2: Define allowed MIME types
+$allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+
+// Step 3: Map MIME types to file extensions (THIS IS KEY!)
+$mimeToExtension = [
+    'image/jpeg' => 'jpg',
+    'image/png' => 'png',
+    'image/gif' => 'gif',
+    'image/webp' => 'webp'
+];
+
+// Step 4: Validate the MIME type
+if (in_array($mimeType, $allowedMimeTypes)) {
+    // Step 5: Get the correct extension from the MIME type
+    $file_ext = $mimeToExtension[$mimeType];
+    
+    // Step 6: Build the filename with the extension (NOT the MIME type!)
+    $new_filename = 'student_' . str_replace('/', '_', $matric_no) . '.' . $file_ext;
+    $destination = $upload_dir . $new_filename;
+    
+    if (move_uploaded_file($_FILES['profile_image']['tmp_name'], $destination)) {
+        $profile_image = 'images/student_photos/' . $new_filename;
+    } else {
+        $errors[] = "Failed to upload image.";
     }
+} else {
+    $errors[] = "Invalid image format. Allowed: JPG, PNG, GIF, WEBP.";
+  }
+}
     
     // --- INSERT INTO DATABASE ---
     if (empty($errors)) {
