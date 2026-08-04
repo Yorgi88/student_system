@@ -190,3 +190,17 @@ ede
 - move to the student_login.php and see how i wrote it
 
 - it works
+
+- lets move to student_dashboard.php
+- there is an issue, when the student types in the matric and password, 
+- the student should see the details automatically, not having to search for
+- it, like in the search.php in the admin dir
+
+- in the StudentAuth class (in the student_auth) file add the student_data to 
+- the login method
+-  $_SESSION['student_data'] = $student;  //store all student data
+- so, in the student_dashboard.php, just fetch the student_data
+
+- see the student_dashboard.php file
+- see how its donw
+

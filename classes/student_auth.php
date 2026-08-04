@@ -13,6 +13,7 @@ class StudentAuth{
         $_SESSION['student_logged_in'] = true;
         $_SESSION['student_id'] = $student['id'];
         $_SESSION['student_matric_no'] = $student['matric_no'];
+        $_SESSION['student_data'] = $student;  //store all student data
     }
 
     public static function getMatricNo(): ?string{

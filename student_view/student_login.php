@@ -6,7 +6,7 @@ require_once '../classes/student.php';
 require_once '../classes/student_auth.php';
 
 if(StudentAuth::isLoggedIn()){
-    header("Location: student_dashboard");
+    header("Location: student_dashboard.php");
     exit;
 }
 

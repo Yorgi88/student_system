@@ -179,7 +179,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['matric_no'])){
                     <span>
                         <?php echo htmlspecialchars($student['gpa']); ?>
                         <?php if ($student['gpa'] < 2.0): ?>
-                            <span class="gpa-warning">⚠️ Advise to Withdraw</span>
+                            <span class="gpa-warning">⚠️ Advised to Withdraw</span>
                         <?php elseif ($student['gpa'] >= 4.5): ?> 
                             <span class="gpa-warning-first">✅ First Class</span>   
                         <?php endif; ?>
