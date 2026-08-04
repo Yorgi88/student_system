@@ -158,4 +158,35 @@ ede
 - Moves it to the right place
 - Stores the path for later use
 
--
+- we added some best security code practices for the file upload section
+
+- runs pretty good
+
+-------------------------
+
+- Next, we moving to the student POV side of things, 
+- To login, the student needs to enter matric number and password
+- in the students table in MySQL, we forgot to add a password_hash column 
+- but we can still update the table accordingly, the new table will have the 
+- password_hash column
+
+- in the MySQL workbench ? run this script
+- ALTER TABLE student_system.students
+- ADD password_hash VARCHAR(255) NOT NULL 
+- DEFAULT '$2y$12$87o9qUn8YS1h7bZffHFSG.UZxU4fMTar1mq4GGRXCO9KemqPIdPbK'
+- AFTER updated_at;
+- the default value is 'student123' perhaps, we should add a "Change Password" feature --
+
+- Now, go to the student_view dir/
+- we'll need 3 php files, student_login, student_logout, student_dashboard
+- i also went to the classes dir to look for the student.php file
+- i added the verifyPassword() method to the student.php
+- in the classes dir, i also created a new file in the classes/ student_auth.php
+- it would be similar to the auth.php
+- lets see if it works
+
+- we done writing the student_auth.php, see the file in the class dir
+- next, let move to the student.php, we added a verify password method to it
+- move to the student_login.php and see how i wrote it
+
+- it works

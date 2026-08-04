@@ -39,6 +39,12 @@ class Student{
             $data['profile_image'] ?? null
         ]);
     }
+
+
+    // lets try to verify the students password here
+    public function verifyPassword(string $password, string $hash): bool{
+        return password_verify($password, $hash);
+    }
 }
 
 ?>

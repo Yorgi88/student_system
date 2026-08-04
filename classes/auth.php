@@ -17,7 +17,6 @@
         $_SESSION['admin_username'] = $admin['username'];
         $_SESSION['admin_full_name'] = $admin['full_name'];
         $_SESSION['admin_email'] = $admin['email'];
-
     }
 
     public static function isLoggedIn(): bool{
